@@ -1,12 +1,5 @@
-#include <iostream>
-using namespace std;
+#include "list.hpp"
 
-class List {
-    public:
-        void append();
-};
+void List::append() {
 
-int main() {
-    List l;
-    cout << "hello c++\n";
 }
