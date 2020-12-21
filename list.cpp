@@ -1,5 +1,9 @@
-class List {
+#include <iostream>
+using namespace std;
 
-};
+class List {};
 
-int main() {}
+int main() {
+    List l;
+    cout << "hello c++\n";
+}
