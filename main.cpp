@@ -41,4 +41,17 @@ int main() {
     cout << "Get: " << l.get(3) << '\n';
 
     cout << "Length: " << l.get_size() << '\n';
+
+    cout << "Clear all.\n";
+
+    l.clear();
+
+    l.print_all();
+    cout << "New length: " << l.get_size() << '\n';
+
+    try {
+        cout << "New get: " << l.get(256) << '\n';
+    } catch (const std::out_of_range& error) {
+        cout << "Error: " << error.what() << endl;
+    }
 }

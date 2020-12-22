@@ -32,9 +32,21 @@ void List::print_all() {
 }
 
 int List::get(int index) {
-    return array[index];
+    if (index > 0 && index < length) {
+        return array[index];
+    }
+
+    throw out_of_range(to_string(index));
 }
 
 int List::get_size() {
     return length;
+}
+
+void List::clear() {
+    max_length = INITIAL_MAX_LENGTH;
+    length = 0;
+        
+    delete array;
+    array = new int[max_length];
 }
