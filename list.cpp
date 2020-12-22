@@ -70,3 +70,13 @@ int List::index_of(int element) {
 
     throw invalid_argument(to_string(element));
 }
+
+int List::last_index_of(int element) {
+    for (int i = length - 1; i >= 0; i--) {
+        if (element == array[i]) {
+            return i;
+        }
+    }
+
+    throw invalid_argument(to_string(element));
+}

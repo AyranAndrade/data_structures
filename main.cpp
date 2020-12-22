@@ -53,6 +53,14 @@ int main() {
         cout << "Error: " << error.what() << endl;
     }    
 
+    try {
+        l.append(3);
+        cout << "Last index of 3 is : " << l.last_index_of(3) << '\n';
+        cout << "Last index of 300 is : " << l.last_index_of(300) << '\n';
+    } catch (invalid_argument& error) {
+        cout << "Error: " << error.what() << endl;
+    }    
+
     cout << "Clear all.\n";
 
     l.clear();
