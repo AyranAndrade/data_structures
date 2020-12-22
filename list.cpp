@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 
 #include "list.hpp"
 
@@ -11,7 +10,9 @@ void List::append(int element) {
         
         int *new_array = new int[max_length];
 
-        memcpy(new_array, array, max_length * sizeof(int));
+        for (int i = 0; i < length; i++) {
+            new_array[i] = array[i];
+        }
     }
 
     array[length] = element;
