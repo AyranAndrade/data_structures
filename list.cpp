@@ -38,7 +38,7 @@ int List::get(int index) {
     throw out_of_range(message);
 }
 
-int List::get_size() {
+int List::size() {
     return length;
 }
 

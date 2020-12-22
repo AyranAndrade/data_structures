@@ -5,9 +5,9 @@
 using namespace std;
 
 void print_all(List list) {
-    cout << "Size: " << list.get_size() << endl;
+    cout << "Size: " << list.size() << endl;
 
-    for (int i = 0; i < list.get_size(); i++) {
+    for (int i = 0; i < list.size(); i++) {
         cout << list.get(i) << endl;
     }
 }
@@ -48,7 +48,7 @@ int main() {
 
     cout << "Get: " << l.get(3) << '\n';
 
-    cout << "Length: " << l.get_size() << '\n';
+    cout << "Length: " << l.size() << '\n';
 
     cout << "1. Contains: " << l.contains(5) << '\n';
 
@@ -69,7 +69,7 @@ int main() {
         cout << "Error: " << error.what() << endl;
     }
 
-    cout << "Size before remove: " << l.get_size() << endl;
+    cout << "Size before remove: " << l.size() << endl;
 
     cout << "Remove index of number 7." << endl;
 
@@ -77,7 +77,7 @@ int main() {
 
     print_all(l);
 
-    cout << "Size after remove: " << l.get_size() << endl;
+    cout << "Size after remove: " << l.size() << endl;
 
     try {
         l.remove(7000);
@@ -87,7 +87,7 @@ int main() {
 
     cout << "Remove last element" << endl;
 
-    l.remove(l.get_size() - 1);
+    l.remove(l.size() - 1);
 
     print_all(l);
 
@@ -97,7 +97,7 @@ int main() {
 
     print_all(l);
 
-    cout << "New length: " << l.get_size() << '\n';
+    cout << "New length: " << l.size() << '\n';
 
     try {
         cout << "New get: " << l.get(256) << '\n';

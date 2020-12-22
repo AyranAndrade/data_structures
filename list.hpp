@@ -2,7 +2,7 @@ class List {
     public:
         void append(int element);
         int get(int index);
-        int get_size();
+        int size();
         void clear();
         bool contains(int element);
         int index_of(int element);
