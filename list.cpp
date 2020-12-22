@@ -6,7 +6,7 @@ using namespace std;
 
 void List::append(int element) {
     if (length >= max_length) {
-        max_length *= 2;
+        max_length += 10;
         
         int *new_array = new int[max_length];
 
