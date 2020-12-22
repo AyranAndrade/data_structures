@@ -79,3 +79,17 @@ int List::last_index_of(int element) {
 
     throw invalid_argument(to_string(element) + " not exists in list.");
 }
+
+void List::remove(int index) {
+    if (index >= 0 && index < length) {
+        if (index < length - 1) {
+            for (int i = index; i < length; i++) {
+                array[i] = array[i+1];
+            }
+        }
+
+        length--;
+    } else {
+        throw out_of_range(to_string(index) + " not exists in list.");
+    }
+}

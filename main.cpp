@@ -67,7 +67,29 @@ int main() {
         cout << "Last index of 300 is : " << l.last_index_of(300) << '\n';
     } catch (invalid_argument& error) {
         cout << "Error: " << error.what() << endl;
-    }    
+    }
+
+    cout << "Size before remove: " << l.get_size() << endl;
+
+    cout << "Remove index of number 7." << endl;
+
+    l.remove(7);
+
+    print_all(l);
+
+    cout << "Size after remove: " << l.get_size() << endl;
+
+    try {
+        l.remove(7000);
+    } catch (out_of_range& error) {
+        cout << "Remove index 7000: " << error.what() << endl;
+    }
+
+    cout << "Remove last element" << endl;
+
+    l.remove(l.get_size() - 1);
+
+    print_all(l);
 
     cout << "Clear all.\n";
 
