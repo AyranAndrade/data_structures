@@ -23,7 +23,7 @@ void List::append(int element) {
 }
 
 int List::get(int index) {
-    if (index > 0 && index < length) {
+    if (index >= 0 && index < length) {
         return array[index];
     }
 
