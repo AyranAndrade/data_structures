@@ -60,3 +60,13 @@ bool List::contains(int element) {
 
     return false;
 }
+
+int List::index_of(int element) {
+    for (int i = 0; i < length; i++) {
+        if (element == array[i]) {
+            return i;
+        }
+    }
+
+    throw invalid_argument(to_string(element));
+}

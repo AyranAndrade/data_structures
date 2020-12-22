@@ -46,6 +46,13 @@ int main() {
 
     cout << "2. Contains: " << l.contains(500) << '\n';
 
+    try {
+        cout << "Index of: " << l.index_of(3) << '\n';
+        cout << "Index of: " << l.index_of(300) << '\n';
+    } catch (invalid_argument& error) {
+        cout << "Error: " << error.what() << endl;
+    }    
+
     cout << "Clear all.\n";
 
     l.clear();
@@ -55,7 +62,7 @@ int main() {
 
     try {
         cout << "New get: " << l.get(256) << '\n';
-    } catch (const std::out_of_range& error) {
+    } catch (out_of_range& error) {
         cout << "Error: " << error.what() << endl;
     }
 }
