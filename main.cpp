@@ -1,4 +1,8 @@
+#include <iostream>
+
 #include "list.hpp"
+
+using namespace std;
 
 int main() {
     List l;
@@ -33,4 +37,6 @@ int main() {
     l.append(22);
 
     l.print_all();
+
+    cout << "Get: " << l.get(3) << '\n';
 }

@@ -30,3 +30,7 @@ void List::print_all() {
         cout << array[i] << "\n";
     }
 }
+
+int List::get(int index) {
+    return array[index];
+}
