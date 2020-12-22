@@ -23,6 +23,9 @@ void List::append(int element) {
 }
 
 void List::print_all() {
+    cout << "Max length: " << max_length << '\n';
+    cout << "Length: " << length << '\n';
+
     for (int i = 0; i < length; i++) {
         cout << array[i] << "\n";
     }
