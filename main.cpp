@@ -74,7 +74,7 @@ int main() {
     l.clear();
 
     print_all(l);
-    
+
     cout << "New length: " << l.get_size() << '\n';
 
     try {
