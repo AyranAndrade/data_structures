@@ -3,7 +3,6 @@ class List {
         void append(int element);
         int get(int index);
         int get_size();
-        void print_all();
         void clear();
         bool contains(int element);
         int index_of(int element);

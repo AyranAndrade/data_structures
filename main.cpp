@@ -4,6 +4,14 @@
 
 using namespace std;
 
+void print_all(List list) {
+    cout << "Size: " << list.get_size() << endl;
+
+    for (int i = 0; i < list.get_size(); i++) {
+        cout << list.get(i) << endl;
+    }
+}
+
 int main() {
     List l;
     
@@ -18,7 +26,7 @@ int main() {
     l.append(9);
     l.append(10);
 
-    l.print_all();
+    print_all(l);
 
     l.append(11);
     l.append(12);
@@ -31,12 +39,12 @@ int main() {
     l.append(19);
     l.append(20);
 
-    l.print_all();
+    print_all(l);
 
     l.append(21);
     l.append(22);
 
-    l.print_all();
+    print_all(l);
 
     cout << "Get: " << l.get(3) << '\n';
 
@@ -65,7 +73,8 @@ int main() {
 
     l.clear();
 
-    l.print_all();
+    print_all(l);
+    
     cout << "New length: " << l.get_size() << '\n';
 
     try {

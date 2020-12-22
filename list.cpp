@@ -22,15 +22,6 @@ void List::append(int element) {
     length++;
 }
 
-void List::print_all() {
-    cout << "Max length: " << max_length << '\n';
-    cout << "Length: " << length << '\n';
-
-    for (int i = 0; i < length; i++) {
-        cout << array[i] << "\n";
-    }
-}
-
 int List::get(int index) {
     if (index > 0 && index < length) {
         return array[index];
