@@ -36,7 +36,15 @@ int List::get(int index) {
         return array[index];
     }
 
-    throw out_of_range(to_string(index));
+    string message = "Index: " + to_string(index) + " ";
+
+    if (length > 0) {
+        message.append("First index possible: 0 Last index possible: " + to_string(length - 1));
+    } else {
+        message.append("List is empty.");
+    }
+
+    throw out_of_range(message);
 }
 
 int List::get_size() {
@@ -68,7 +76,7 @@ int List::index_of(int element) {
         }
     }
 
-    throw invalid_argument(to_string(element));
+    throw invalid_argument(to_string(element) + " not exists in list.");
 }
 
 int List::last_index_of(int element) {
@@ -78,5 +86,5 @@ int List::last_index_of(int element) {
         }
     }
 
-    throw invalid_argument(to_string(element));
+    throw invalid_argument(to_string(element) + " not exists in list.");
 }
