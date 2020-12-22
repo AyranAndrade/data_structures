@@ -13,6 +13,9 @@ void List::append(int element) {
         for (int i = 0; i < length; i++) {
             new_array[i] = array[i];
         }
+
+        delete array;
+        array = new_array;
     }
 
     array[length] = element;
