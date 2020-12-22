@@ -5,6 +5,7 @@ class List {
         int get_size();
         void print_all();
         void clear();
+        bool contains(int element);
     private:
         int *array = new int[10];
         int INITIAL_MAX_LENGTH = 10;

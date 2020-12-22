@@ -50,3 +50,13 @@ void List::clear() {
     delete array;
     array = new int[max_length];
 }
+
+bool List::contains(int element) {
+    for (int i = 0; i < length; i++) {
+        if (element == array[i]) {
+            return true;
+        }
+    }
+
+    return false;
+}

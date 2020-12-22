@@ -42,6 +42,10 @@ int main() {
 
     cout << "Length: " << l.get_size() << '\n';
 
+    cout << "1. Contains: " << l.contains(5) << '\n';
+
+    cout << "2. Contains: " << l.contains(500) << '\n';
+
     cout << "Clear all.\n";
 
     l.clear();
