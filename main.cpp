@@ -39,4 +39,6 @@ int main() {
     l.print_all();
 
     cout << "Get: " << l.get(3) << '\n';
+
+    cout << "Length: " << l.get_size() << '\n';
 }

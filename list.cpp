@@ -34,3 +34,7 @@ void List::print_all() {
 int List::get(int index) {
     return array[index];
 }
+
+int List::get_size() {
+    return length;
+}
