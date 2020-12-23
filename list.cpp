@@ -93,3 +93,13 @@ void List::remove(int index) {
         throw out_of_range(to_string(index) + " not exists in list.");
     }
 }
+
+List List::sub_list(int from, int to) {
+    List new_list;
+
+    for (int i = from; i <= to; i++) {
+        new_list.append(this->get(i));
+    }
+
+    return new_list;
+}

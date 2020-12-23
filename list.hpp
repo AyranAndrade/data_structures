@@ -8,6 +8,7 @@ class List {
         int index_of(int element);
         int last_index_of(int element);
         void remove(int index);
+        List sub_list(int from, int to);
     private:
         int *array = new int[10];
         int INITIAL_MAX_LENGTH = 10;
