@@ -2,7 +2,7 @@
   "name": "data_structures",
   "version": "1.0.0",
   "description": "",
-  "main": "list.cpp",
+  "main": "main.cpp",
   "scripts": {
     "start": "g++ *.cpp && ./a.out"
   },
