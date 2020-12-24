@@ -57,11 +57,21 @@ int main() {
     cout << "2. Contains: " << l.contains(500) << '\n';
 
     try {
-        cout << "Index of: " << l.index_of(3) << '\n';
-        cout << "Index of: " << l.index_of(300) << '\n';
+        cout << "Index of 3 is : " << l.index_of(3) << '\n';
+        cout << "Index of 300 is: " << l.index_of(300) << '\n';
     } catch (invalid_argument& error) {
         cout << "Error: " << error.what() << endl;
     }    
+
+    try {
+        cout << "Last index of 22 is : " << l.last_index_of(22) << '\n';
+        l.append(3);
+        cout << "Last index of 3 is : " << l.last_index_of(3) << '\n';
+        cout << "Last index of 7 is : " << l.last_index_of(7) << '\n';
+        cout << "Last index of 300 is : " << l.last_index_of(300) << '\n';
+    } catch (invalid_argument& error) {
+        cout << "Error: " << error.what() << endl;
+    }
 
     cout << "I will clean the list." << endl;
 

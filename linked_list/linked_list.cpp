@@ -101,3 +101,24 @@ int LinkedList::index_of(int element) {
 
     throw invalid_argument(to_string(element) + " not exists in list.");
 }
+
+int LinkedList::last_index_of(int element) {
+    Node* pointer = &head;
+    int counter = 0;
+    int last_index = -1;
+
+    while (pointer != NULL) {
+        if (pointer->value == element) {
+            last_index = counter;
+        }
+
+        pointer = pointer->next;
+        counter++;
+    }
+
+    if (last_index == -1) {
+        throw invalid_argument(to_string(element) + " not exists in list.");
+    } else {
+        return last_index;
+    }
+}
