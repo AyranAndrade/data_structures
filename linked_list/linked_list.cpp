@@ -34,7 +34,7 @@ int LinkedList::get(int index) {
         Node* pointer = &head;
         int counter = 0;
 
-        while (pointer->next != NULL) {
+        while (pointer != NULL) {
             if (counter == index) {
                 return pointer->value;
             }
@@ -42,8 +42,6 @@ int LinkedList::get(int index) {
             pointer = pointer->next;
             counter++;
         }
-
-        return pointer->value;
     }
 
     string message = "Index: " + to_string(index) + " ";
@@ -61,7 +59,7 @@ void LinkedList::clear() {
     Node* pointer = head.next;
     Node* next;
 
-    while (pointer != NULL && pointer->next != NULL) {
+    while (pointer != NULL) {
         next = pointer->next;
         delete pointer;
         pointer = next;
@@ -75,7 +73,7 @@ void LinkedList::clear() {
 bool LinkedList::contains(int element) {
     Node* pointer = &head;
 
-    while (pointer->next != NULL) {
+    while (pointer != NULL) {
         if (pointer->value == element) {
             return true;
         }
@@ -90,7 +88,7 @@ int LinkedList::index_of(int element) {
     Node* pointer = &head;
     int counter = 0;
 
-    while (pointer->next != NULL) {
+    while (pointer != NULL) {
         if (pointer->value == element) {
             return counter;
         }
