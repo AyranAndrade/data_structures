@@ -85,3 +85,19 @@ bool LinkedList::contains(int element) {
 
     return false;
 }
+
+int LinkedList::index_of(int element) {
+    Node* pointer = &head;
+    int counter = 0;
+
+    while (pointer->next != NULL) {
+        if (pointer->value == element) {
+            return counter;
+        }
+
+        pointer = pointer->next;
+        counter++;
+    }
+
+    throw invalid_argument(to_string(element) + " not exists in list.");
+}
