@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start:list": "g++ list/*.cpp list/*.hpp && ./a.out"
+    "start:list": "g++ list/*.cpp list/*.cpp && ./a.out",
+    "start:linked_list": "g++ linked_list/*.cpp linked_list/*.hpp && ./a.out"
   },
   "author": "Ayran Andrade",
   "license": "ISC"
