@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.cpp",
   "scripts": {
-    "start:list": "g++ list/*.* && ./a.out"
+    "start:list": "g++ list/*.cpp list/*.hpp && ./a.out"
   },
   "author": "Ayran Andrade",
   "license": "ISC"
