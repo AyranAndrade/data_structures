@@ -56,3 +56,18 @@ int LinkedList::get(int index) {
 
     throw out_of_range(message);
 }
+
+void LinkedList::clear() {
+    Node* pointer = head.next;
+    Node* next;
+
+    while (pointer != NULL && pointer->next != NULL) {
+        next = pointer->next;
+        delete pointer;
+        pointer = next;
+    }
+
+    head.value = (int)NULL;
+    head.next = NULL;
+    length = 0;
+}

@@ -51,4 +51,10 @@ int main() {
     } catch (out_of_range& error) {
         cout << "Get index 7000: " << error.what() << endl;
     }
+
+    cout << "I will clean the list." << endl;
+
+    l.clear();
+
+    print_all(l);
 }
