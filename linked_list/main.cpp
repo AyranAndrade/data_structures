@@ -45,4 +45,10 @@ int main() {
     l.append(22);
 
     print_all(l);
+
+    try {
+        l.get(7000);
+    } catch (out_of_range& error) {
+        cout << "Get index 7000: " << error.what() << endl;
+    }
 }
