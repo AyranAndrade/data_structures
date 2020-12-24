@@ -52,6 +52,10 @@ int main() {
         cout << "Get index 7000: " << error.what() << endl;
     }
 
+    cout << "1. Contains: " << l.contains(5) << '\n';
+
+    cout << "2. Contains: " << l.contains(500) << '\n';
+
     cout << "I will clean the list." << endl;
 
     l.clear();

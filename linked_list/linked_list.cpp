@@ -71,3 +71,17 @@ void LinkedList::clear() {
     head.next = NULL;
     length = 0;
 }
+
+bool LinkedList::contains(int element) {
+    Node* pointer = &head;
+
+    while (pointer->next != NULL) {
+        if (pointer->value == element) {
+            return true;
+        }
+
+        pointer = pointer->next;
+    }
+
+    return false;
+}
