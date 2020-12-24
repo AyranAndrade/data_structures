@@ -16,6 +16,7 @@ class LinkedList {
         int index_of(int element);
         int last_index_of(int element);
         void remove(int index);
+        void insert(int element, int index);
         LinkedList sub_list(int from, int to);
     private:
         Node head;
