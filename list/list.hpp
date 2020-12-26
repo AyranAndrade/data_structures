@@ -8,6 +8,7 @@ class List {
         int index_of(int element);
         int last_index_of(int element);
         void remove(int index);
+        void insert(int element, int index);
         List sub_list(int from, int to);
         List();
     private:

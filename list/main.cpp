@@ -97,6 +97,24 @@ int main() {
 
     print_all(sub_list);
 
+    cout << "Insert mode" << endl;
+
+    l.insert(455, 0);
+
+    l.insert(55, 10);
+
+    l.insert(666, l.size() -1);
+
+    l.insert(667, l.size() -1);
+
+    print_all(l);
+
+    try {
+        l.insert(1, 345);
+    } catch (out_of_range& error) {
+        cout << "Insert index 345: " << error.what() << endl;
+    }
+
     cout << "Clear all.\n";
 
     l.clear();

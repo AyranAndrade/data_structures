@@ -124,3 +124,18 @@ List::List(int *array, int max_length, int length) {
     this->length = length;
     this->max_length = max_length;
 }
+
+void List::insert(int element, int index) {
+    if (index >= 0 && index < length) {
+        length++;
+        resize_if_necessary();
+
+        for (int i = length - 1; i >= index; i--) {
+            array[i] = array[i-1];
+        }
+
+        array[index] = element;
+    } else {
+        throw out_of_range(to_string(index) + " not exists in list.");
+    }
+}
