@@ -76,6 +76,30 @@ int main() {
         cout << "Error: " << error.what() << endl;
     }
 
+    cout << "I will remove some items." << endl;
+
+    LinkedList l1;
+    l1.append(10);
+    print_all(l1);
+    l1.remove(0);
+    print_all(l1);
+
+    cout << "I removed items from other list." << endl;
+
+    l.remove(0);
+
+    l.remove(4);
+
+    print_all(l);
+
+    cout << "I tried to remove some items from original list." << endl;
+
+    try {
+        l.remove(7000);
+    } catch (out_of_range& error) {
+        cout << "Remove index 7000: " << error.what() << endl;
+    }
+
     cout << "I will clean the list." << endl;
 
     l.clear();

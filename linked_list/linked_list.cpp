@@ -120,3 +120,36 @@ int LinkedList::last_index_of(int element) {
         return last_index;
     }
 }
+
+void LinkedList::remove(int index) {
+    if (index >= 0 && index < length) {
+        Node* previous_pointer = &head;
+        Node* pointer = head.next;
+        int counter = 1;
+
+        if (length == 1) {
+            head.value = (int)NULL;
+        } else {
+            if (index == 0) {
+                previous_pointer->value = pointer->value;
+                previous_pointer->next = pointer->next;
+            } else {
+                while (pointer != NULL) {
+                    if (counter == index) {
+                        previous_pointer->next = pointer->next;
+                        delete pointer;
+                        break;
+                    }
+
+                    previous_pointer = pointer;
+                    pointer = pointer->next;
+                    counter++;
+                }
+            }
+        }
+
+        length--;
+    } else {
+        throw out_of_range(to_string(index) + " not exists in list.");
+    }
+}
