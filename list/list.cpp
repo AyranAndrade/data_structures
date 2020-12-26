@@ -1,21 +1,26 @@
+#ifndef _LIST_CPP_
+#define _LIST_CPP_
+
 #include <iostream>
 
 #include "list.hpp"
 
 using namespace std;
 
-void List::append(int element) {
+template <class T>
+void List<T>::append(T element) {
     resize_if_necessary();
 
     array[length] = element;
     length++;
 }
 
-void List::resize_if_necessary() {
+template <class T>
+void List<T>::resize_if_necessary() {
     if (length >= max_length) {
         max_length += 10;
         
-        int *new_array = new int[max_length];
+        T *new_array = new T[max_length];
 
         for (int i = 0; i < length; i++) {
             new_array[i] = array[i];
@@ -26,7 +31,8 @@ void List::resize_if_necessary() {
     }
 }
 
-int List::get(int index) {
+template <class T>
+T List<T>::get(int index) {
     if (index >= 0 && index < length) {
         return array[index];
     }
@@ -42,19 +48,22 @@ int List::get(int index) {
     throw out_of_range(message);
 }
 
-int List::size() {
+template <class T>
+int List<T>::size() {
     return length;
 }
 
-void List::clear() {
+template <class T>
+void List<T>::clear() {
     max_length = INITIAL_MAX_LENGTH;
     length = 0;
         
     delete array;
-    array = new int[max_length];
+    array = new T[max_length];
 }
 
-bool List::contains(int element) {
+template <class T>
+bool List<T>::contains(T element) {
     for (int i = 0; i < length; i++) {
         if (element == array[i]) {
             return true;
@@ -64,7 +73,8 @@ bool List::contains(int element) {
     return false;
 }
 
-int List::index_of(int element) {
+template <class T>
+int List<T>::index_of(T element) {
     for (int i = 0; i < length; i++) {
         if (element == array[i]) {
             return i;
@@ -74,7 +84,8 @@ int List::index_of(int element) {
     throw invalid_argument(to_string(element) + " not exists in list.");
 }
 
-int List::last_index_of(int element) {
+template <class T>
+int List<T>::last_index_of(T element) {
     for (int i = length - 1; i >= 0; i--) {
         if (element == array[i]) {
             return i;
@@ -84,7 +95,8 @@ int List::last_index_of(int element) {
     throw invalid_argument(to_string(element) + " not exists in list.");
 }
 
-void List::remove(int index) {
+template <class T>
+void List<T>::remove(int index) {
     if (index >= 0 && index < length) {
         if (index < length - 1) {
             for (int i = index; i < length; i++) {
@@ -98,7 +110,8 @@ void List::remove(int index) {
     }
 }
 
-List List::sub_list(int from, int to) {
+template <class T>
+List<T> List<T>::sub_list(int from, int to) {
     if (from > to || from < 0 || to >= length) {
         return List();
     }
@@ -107,7 +120,7 @@ List List::sub_list(int from, int to) {
 
     int new_max_length = 10 - (new_length % 10) + new_length;
 
-    int *new_array = new int[new_max_length];
+    T *new_array = new T[new_max_length];
 
     for (int i = from, j = 0; i <= to; i++, j++) {
         new_array[j] = array[i];
@@ -116,16 +129,19 @@ List List::sub_list(int from, int to) {
     return List(new_array, new_max_length, new_length);
 }
 
-List::List() {}
+template <class T>
+List<T>::List() {}
 
-List::List(int *array, int max_length, int length) {
+template <class T>
+List<T>::List(T *array, int max_length, int length) {
     this->array = array;
     this->INITIAL_MAX_LENGTH = 10;
     this->length = length;
     this->max_length = max_length;
 }
 
-void List::insert(int element, int index) {
+template <class T>
+void List<T>::insert(T element, int index) {
     if (index >= 0 && index < length) {
         length++;
         resize_if_necessary();
@@ -139,3 +155,5 @@ void List::insert(int element, int index) {
         throw out_of_range(to_string(index) + " not exists in list.");
     }
 }
+
+#endif

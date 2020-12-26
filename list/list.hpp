@@ -1,21 +1,28 @@
+#ifndef _LIST_HPP_
+#define _LIST_HPP_
+
+template<class T>
 class List {
     public:
-        void append(int element);
-        int get(int index);
+        void append(T element);
+        T get(int index);
         int size();
         void clear();
-        bool contains(int element);
-        int index_of(int element);
-        int last_index_of(int element);
+        bool contains(T element);
+        int index_of(T element);
+        int last_index_of(T element);
         void remove(int index);
-        void insert(int element, int index);
+        void insert(T element, int index);
         List sub_list(int from, int to);
         List();
     private:
-        List(int *array, int max_length, int length);
+        List(T *array, int max_length, int length);
         void resize_if_necessary();
-        int *array = new int[10];
+        T *array = new T[10];
         int INITIAL_MAX_LENGTH = 10;
         int max_length = INITIAL_MAX_LENGTH;
         int length = 0;
 };
+
+#include "list.cpp"
+#endif

@@ -4,7 +4,8 @@
 
 using namespace std;
 
-void print_all(List list) {
+template <class T>
+void print_all(List<T> list) {
     cout << "Size: " << list.size() << endl;
 
     for (int i = 0; i < list.size(); i++) {
@@ -13,7 +14,7 @@ void print_all(List list) {
 }
 
 int main() {
-    List l;
+    List<int> l;
     
     l.append(1);
     l.append(2);
@@ -93,7 +94,7 @@ int main() {
 
     cout << "Sublist." << endl;
 
-    List sub_list = l.sub_list(3, 6);
+    List<int> sub_list = l.sub_list(3, 6);
 
     print_all(sub_list);
 
@@ -128,4 +129,12 @@ int main() {
     } catch (out_of_range& error) {
         cout << "Error: " << error.what() << endl;
     }
+
+    List<string> l2;
+    l2.append("abc");
+    l2.append("efg");
+
+    print_all(l2);
+
+    cout << l2.get(1) << endl;
 }
