@@ -12,6 +12,7 @@ class List {
         List();
     private:
         List(int *array, int max_length, int length);
+        void resize_if_necessary();
         int *array = new int[10];
         int INITIAL_MAX_LENGTH = 10;
         int max_length = INITIAL_MAX_LENGTH;

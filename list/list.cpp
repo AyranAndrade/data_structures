@@ -5,6 +5,13 @@
 using namespace std;
 
 void List::append(int element) {
+    resize_if_necessary();
+
+    array[length] = element;
+    length++;
+}
+
+void List::resize_if_necessary() {
     if (length >= max_length) {
         max_length += 10;
         
@@ -17,9 +24,6 @@ void List::append(int element) {
         delete array;
         array = new_array;
     }
-
-    array[length] = element;
-    length++;
 }
 
 int List::get(int index) {
