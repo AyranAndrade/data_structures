@@ -101,7 +101,7 @@ List List::sub_list(int from, int to) {
 
     int new_length = to - from + 1;
 
-    int new_max_length = (10 - (new_length % 10)) + new_length;
+    int new_max_length = 10 - (new_length % 10) + new_length;
 
     int *new_array = new int[new_max_length];
 
