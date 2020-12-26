@@ -100,12 +100,25 @@ int main() {
         cout << "Remove index 7000: " << error.what() << endl;
     }
 
-
     cout << "Sublist." << endl;
 
     LinkedList sub_list = l.sub_list(3, 6);
 
     print_all(sub_list);  // 5, 7, 8, 9
+
+    cout << "Insert mode" << endl;
+
+    l.insert(455, 0);
+
+    l.insert(55, 10);
+
+    print_all(l);
+
+    try {
+        l.insert(1, 345);
+    } catch (out_of_range& error) {
+        cout << "Insert index 345: " << error.what() << endl;
+    }
 
     cout << "I will clean the list." << endl;
 

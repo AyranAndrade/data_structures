@@ -192,3 +192,34 @@ LinkedList::LinkedList(Node head, int length) {
     this->head = head;
     this->length = length;
 }
+
+void LinkedList::insert(int element, int index) {
+    Node* previous = &head;
+    Node* current = head.next;
+    int counter = 1;
+
+    if (index >=0 && index < length) {
+        if (index == 0) {
+            Node* new_node = new Node();
+            new_node->value = head.value;
+            new_node->next = head.next;
+            head.value = element;
+            head.next = new_node;
+        } else {
+            while (current != NULL) {
+                if (counter == index) {
+                    Node* new_node = new Node();
+                    new_node->value = element;
+                    new_node->next = current;
+                    previous->next = new_node;
+                    break;
+                }
+                previous = current;
+                current = current->next;
+                counter++;
+            }
+        }
+    } else {
+        throw out_of_range(to_string(index) + " not exists in list.");
+    }
+}
