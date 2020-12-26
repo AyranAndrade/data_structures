@@ -153,3 +153,42 @@ void LinkedList::remove(int index) {
         throw out_of_range(to_string(index) + " not exists in list.");
     }
 }
+
+LinkedList LinkedList::sub_list(int from, int to) {
+    Node new_head;
+    int new_length = 0;
+
+    if (from < to && from >= 0 && to < length) {
+        Node* pointer = &head;
+        Node* new_list_pointer = &new_head;
+        int counter = 0;
+
+        while (pointer != NULL) {
+            if (counter >= from && counter <= to) {
+                if (counter == from) {
+                    new_list_pointer->value = pointer->value;    
+                } else {
+                    Node* new_node = new Node();
+                    new_node->value = pointer->value;
+                    new_node->next = NULL;
+                    new_list_pointer->next = new_node;
+                    new_list_pointer = new_list_pointer->next;
+                }
+
+                new_length++;
+            }
+
+            counter++;
+            pointer = pointer->next;
+        }
+    }
+
+    return LinkedList(new_head, new_length);
+}
+
+LinkedList::LinkedList() {}
+
+LinkedList::LinkedList(Node head, int length) {
+    this->head = head;
+    this->length = length;
+}

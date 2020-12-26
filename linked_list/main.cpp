@@ -100,6 +100,13 @@ int main() {
         cout << "Remove index 7000: " << error.what() << endl;
     }
 
+
+    cout << "Sublist." << endl;
+
+    LinkedList sub_list = l.sub_list(3, 6);
+
+    print_all(sub_list);  // 5, 7, 8, 9
+
     cout << "I will clean the list." << endl;
 
     l.clear();

@@ -18,7 +18,9 @@ class LinkedList {
         void remove(int index);
         void insert(int element, int index);
         LinkedList sub_list(int from, int to);
+        LinkedList();
     private:
+        LinkedList(Node head, int length);
         Node head;
         int length = 0;
 };
