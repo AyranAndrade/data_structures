@@ -4,7 +4,8 @@
 
 using namespace std;
 
-void print_all(LinkedList list) {
+template <class T>
+void print_all(LinkedList<T> list) {
     cout << "Size: " << list.size() << endl;
 
     for (int i = 0; i < list.size(); i++) {
@@ -13,7 +14,7 @@ void print_all(LinkedList list) {
 }
 
 int main() {
-    LinkedList l;
+    LinkedList<int> l;
 
     l.append(1);
     l.append(2);
@@ -78,7 +79,7 @@ int main() {
 
     cout << "I will remove some items." << endl;
 
-    LinkedList l1;
+    LinkedList<int> l1;
     l1.append(10);
     print_all(l1);
     l1.remove(0);
@@ -102,7 +103,7 @@ int main() {
 
     cout << "Sublist." << endl;
 
-    LinkedList sub_list = l.sub_list(3, 6);
+    LinkedList<int> sub_list = l.sub_list(3, 6);
 
     print_all(sub_list);  // 5, 7, 8, 9
 
@@ -129,4 +130,12 @@ int main() {
     l.clear();
 
     print_all(l);
+
+    LinkedList<string> l2;
+    l2.append("abc");
+    l2.append("efg");
+
+    print_all(l2);
+
+    cout << l2.get(1) << endl;
 }

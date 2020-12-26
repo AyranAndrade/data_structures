@@ -1,3 +1,6 @@
+#ifndef _LINKED_LIST_CPP_
+#define _LINKED_LIST_CPP_
+
 #include <iostream>
 #include <cstddef>
 
@@ -5,17 +8,18 @@
 
 using namespace std;
 
-void LinkedList::append(int element) {
+template <class T>
+void LinkedList<T>::append(T element) {
     if (length == 0) {
         head.value = element;
     } else {
-        Node* pointer = &head;
+        Node<T>* pointer = &head;
 
         while (pointer->next != NULL) {
             pointer = pointer->next;
         }
 
-        Node* new_node = new Node();
+        Node<T>* new_node = new Node<T>();
         new_node->value = element;
         new_node->next = NULL;
 
@@ -25,13 +29,15 @@ void LinkedList::append(int element) {
     length++;
 }
 
-int LinkedList::size() {
+template <class T>
+int LinkedList<T>::size() {
     return length;
 }
 
-int LinkedList::get(int index) {
+template <class T>
+T LinkedList<T>::get(int index) {
     if (index >= 0 && index < length) {
-        Node* pointer = &head;
+        Node<T>* pointer = &head;
         int counter = 0;
 
         while (pointer != NULL) {
@@ -55,9 +61,10 @@ int LinkedList::get(int index) {
     throw out_of_range(message);
 }
 
-void LinkedList::clear() {
-    Node* pointer = head.next;
-    Node* next;
+template <class T>
+void LinkedList<T>::clear() {
+    Node<T>* pointer = head.next;
+    Node<T>* next;
 
     while (pointer != NULL) {
         next = pointer->next;
@@ -65,13 +72,14 @@ void LinkedList::clear() {
         pointer = next;
     }
 
-    head.value = (int)NULL;
+    head.value = (T)NULL;
     head.next = NULL;
     length = 0;
 }
 
-bool LinkedList::contains(int element) {
-    Node* pointer = &head;
+template <class T>
+bool LinkedList<T>::contains(T element) {
+    Node<T>* pointer = &head;
 
     while (pointer != NULL) {
         if (pointer->value == element) {
@@ -84,8 +92,9 @@ bool LinkedList::contains(int element) {
     return false;
 }
 
-int LinkedList::index_of(int element) {
-    Node* pointer = &head;
+template <class T>
+int LinkedList<T>::index_of(T element) {
+    Node<T>* pointer = &head;
     int counter = 0;
 
     while (pointer != NULL) {
@@ -100,8 +109,9 @@ int LinkedList::index_of(int element) {
     throw invalid_argument(to_string(element) + " not exists in list.");
 }
 
-int LinkedList::last_index_of(int element) {
-    Node* pointer = &head;
+template <class T>
+int LinkedList<T>::last_index_of(T element) {
+    Node<T>* pointer = &head;
     int counter = 0;
     int last_index = -1;
 
@@ -121,14 +131,15 @@ int LinkedList::last_index_of(int element) {
     }
 }
 
-void LinkedList::remove(int index) {
+template <class T>
+void LinkedList<T>::remove(int index) {
     if (index >= 0 && index < length) {
-        Node* previous_pointer = &head;
-        Node* pointer = head.next;
+        Node<T>* previous_pointer = &head;
+        Node<T>* pointer = head.next;
         int counter = 1;
 
         if (length == 1) {
-            head.value = (int)NULL;
+            head.value = (T)NULL;
         } else {
             if (index == 0) {
                 previous_pointer->value = pointer->value;
@@ -154,13 +165,14 @@ void LinkedList::remove(int index) {
     }
 }
 
-LinkedList LinkedList::sub_list(int from, int to) {
-    Node new_head;
+template <class T>
+LinkedList<T> LinkedList<T>::sub_list(int from, int to) {
+    Node<T> new_head;
     int new_length = 0;
 
     if (from < to && from >= 0 && to < length) {
-        Node* pointer = &head;
-        Node* new_list_pointer = &new_head;
+        Node<T>* pointer = &head;
+        Node<T>* new_list_pointer = &new_head;
         int counter = 0;
 
         while (pointer != NULL) {
@@ -168,7 +180,7 @@ LinkedList LinkedList::sub_list(int from, int to) {
                 if (counter == from) {
                     new_list_pointer->value = pointer->value;    
                 } else {
-                    Node* new_node = new Node();
+                    Node<T>* new_node = new Node<T>();
                     new_node->value = pointer->value;
                     new_node->next = NULL;
                     new_list_pointer->next = new_node;
@@ -186,21 +198,24 @@ LinkedList LinkedList::sub_list(int from, int to) {
     return LinkedList(new_head, new_length);
 }
 
-LinkedList::LinkedList() {}
+template <class T>
+LinkedList<T>::LinkedList() {}
 
-LinkedList::LinkedList(Node head, int length) {
+template <class T>
+LinkedList<T>::LinkedList(Node<T> head, int length) {
     this->head = head;
     this->length = length;
 }
 
-void LinkedList::insert(int element, int index) {
-    Node* previous = &head;
-    Node* current = head.next;
+template <class T>
+void LinkedList<T>::insert(T element, int index) {
+    Node<T>* previous = &head;
+    Node<T>* current = head.next;
     int counter = 1;
 
     if (index >=0 && index < length) {
         if (index == 0) {
-            Node* new_node = new Node();
+            Node<T>* new_node = new Node<T>();
             new_node->value = head.value;
             new_node->next = head.next;
             head.value = element;
@@ -208,7 +223,7 @@ void LinkedList::insert(int element, int index) {
         } else {
             while (current != NULL) {
                 if (counter == index) {
-                    Node* new_node = new Node();
+                    Node<T>* new_node = new Node<T>();
                     new_node->value = element;
                     new_node->next = current;
                     previous->next = new_node;
@@ -225,3 +240,4 @@ void LinkedList::insert(int element, int index) {
         throw out_of_range(to_string(index) + " not exists in list.");
     }
 }
+#endif
