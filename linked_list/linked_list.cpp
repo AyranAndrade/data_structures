@@ -219,6 +219,8 @@ void LinkedList::insert(int element, int index) {
                 counter++;
             }
         }
+
+        length++;
     } else {
         throw out_of_range(to_string(index) + " not exists in list.");
     }

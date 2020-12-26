@@ -112,6 +112,10 @@ int main() {
 
     l.insert(55, 10);
 
+    l.insert(666, l.size() -1);
+
+    l.insert(667, l.size() -1);
+
     print_all(l);
 
     try {
