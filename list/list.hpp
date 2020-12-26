@@ -9,7 +9,9 @@ class List {
         int last_index_of(int element);
         void remove(int index);
         List sub_list(int from, int to);
+        List();
     private:
+        List(int *array, int max_length, int length);
         int *array = new int[10];
         int INITIAL_MAX_LENGTH = 10;
         int max_length = INITIAL_MAX_LENGTH;

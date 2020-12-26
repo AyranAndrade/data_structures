@@ -95,11 +95,28 @@ void List::remove(int index) {
 }
 
 List List::sub_list(int from, int to) {
-    List new_list;
-
-    for (int i = from; i <= to; i++) {
-        new_list.append(this->get(i));
+    if (from > to || from < 0 || to >= length) {
+        return List();
     }
 
-    return new_list;
+    int new_length = to - from + 1;
+
+    int new_max_length = (10 - (new_length % 10)) + new_length;
+
+    int *new_array = new int[new_max_length];
+
+    for (int i = from, j = 0; i <= to; i++, j++) {
+        new_array[j] = array[i];
+    }
+
+    return List(new_array, new_max_length, new_length);
+}
+
+List::List() {}
+
+List::List(int *array, int max_length, int length) {
+    this->array = array;
+    this->INITIAL_MAX_LENGTH = 10;
+    this->length = length;
+    this->max_length = max_length;
 }
