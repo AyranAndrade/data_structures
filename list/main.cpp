@@ -91,6 +91,12 @@ int main() {
 
     print_all(l);
 
+    cout << "Sublist." << endl;
+
+    List sub_list = l.sub_list(3, 6);
+
+    print_all(sub_list);
+
     cout << "Clear all.\n";
 
     l.clear();
