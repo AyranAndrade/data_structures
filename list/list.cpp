@@ -156,4 +156,9 @@ void List<T>::insert(T element, int index) {
     }
 }
 
+template <class T>
+T List<T>::operator[](int index) {
+    return get(index);
+}
+
 #endif

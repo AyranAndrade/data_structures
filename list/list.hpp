@@ -14,6 +14,7 @@ class List {
         void remove(int index);
         void insert(T element, int index);
         List sub_list(int from, int to);
+        T operator[](int index);
         List();
     private:
         List(T *array, int max_length, int length);
