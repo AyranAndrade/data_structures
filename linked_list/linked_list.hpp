@@ -23,6 +23,7 @@ class LinkedList {
         void remove(int index);
         void insert(T element, int index);
         LinkedList sub_list(int from, int to);
+        T operator[](int index);
         LinkedList();
     private:
         LinkedList(Node<T> head, int length);

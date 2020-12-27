@@ -137,5 +137,6 @@ int main() {
 
     print_all(l2);
 
-    cout << l2.get(1) << endl;
+    cout << l2[1] << endl;
+    cout << l2[0] << endl;
 }
