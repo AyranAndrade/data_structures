@@ -139,4 +139,9 @@ int main() {
 
     cout << l2[1] << endl;
     cout << l2[0] << endl;
+
+    LinkedList<int> l3;
+    l3.insert(10, 0);
+
+    print_all(l3);
 }

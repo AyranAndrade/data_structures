@@ -213,26 +213,25 @@ void LinkedList<T>::insert(T element, int index) {
     Node<T>* current = head.next;
     int counter = 1;
 
-    if (index >=0 && index < length) {
-        if (index == 0) {
-            Node<T>* new_node = new Node<T>();
-            new_node->value = head.value;
-            new_node->next = head.next;
-            head.value = element;
-            head.next = new_node;
-        } else {
-            while (current != NULL) {
-                if (counter == index) {
-                    Node<T>* new_node = new Node<T>();
-                    new_node->value = element;
-                    new_node->next = current;
-                    previous->next = new_node;
-                    break;
-                }
-                previous = current;
-                current = current->next;
-                counter++;
+    if (index == 0)  {
+        Node<T>* new_node = new Node<T>();
+        new_node->value = head.value;
+        new_node->next = head.next;
+        head.value = element;
+        head.next = new_node;
+        length++;
+    } else if (index > 0 && index < length) {
+        while (current != NULL) {
+            if (counter == index) {
+                Node<T>* new_node = new Node<T>();
+                new_node->value = element;
+                new_node->next = current;
+                previous->next = new_node;
+                break;
             }
+            previous = current;
+            current = current->next;
+            counter++;
         }
 
         length++;
