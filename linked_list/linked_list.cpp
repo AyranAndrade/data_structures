@@ -178,7 +178,7 @@ LinkedList<T> LinkedList<T>::sub_list(int from, int to) {
         while (pointer != NULL) {
             if (counter >= from && counter <= to) {
                 if (counter == from) {
-                    new_list_pointer->value = pointer->value;    
+                    new_list_pointer->value = pointer->value;
                 } else {
                     Node<T>* new_node = new Node<T>();
                     new_node->value = pointer->value;
@@ -243,6 +243,21 @@ void LinkedList<T>::insert(T element, int index) {
 template <class T>
 T LinkedList<T>::operator[](int index) {
     return get(index);
+}
+
+template <class T>
+std::ostream &operator<<(std::ostream &os, LinkedList<T> &m) {
+    os << "[";
+
+    for (int i = 0; i < m.size(); i++) {
+        if (i == m.size() - 1) {
+            os << m[i] << "]";
+        } else {
+            os << m[i] << ", ";
+        }
+    }
+
+    return os;
 }
 
 #endif
