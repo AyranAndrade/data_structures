@@ -4,18 +4,9 @@
 
 using namespace std;
 
-template <class T>
-void print_all(List<T> list) {
-    cout << "Size: " << list.size() << endl;
-
-    for (int i = 0; i < list.size(); i++) {
-        cout << list.get(i) << endl;
-    }
-}
-
 int main() {
     List<int> l;
-    
+
     l.append(1);
     l.append(2);
     l.append(3);
@@ -27,7 +18,7 @@ int main() {
     l.append(9);
     l.append(10);
 
-    print_all(l);
+    cout << l << endl;
 
     l.append(11);
     l.append(12);
@@ -40,12 +31,12 @@ int main() {
     l.append(19);
     l.append(20);
 
-    print_all(l);
+    cout << l << endl;
 
     l.append(21);
     l.append(22);
 
-    print_all(l);
+    cout << l << endl;
 
     cout << "Get: " << l.get(3) << '\n';
 
@@ -60,7 +51,7 @@ int main() {
         cout << "Index of: " << l.index_of(300) << '\n';
     } catch (invalid_argument& error) {
         cout << "Error: " << error.what() << endl;
-    }    
+    }
 
     try {
         l.append(3);
@@ -76,7 +67,7 @@ int main() {
 
     l.remove(7);
 
-    print_all(l);
+    cout << l << endl;
 
     cout << "Size after remove: " << l.size() << endl;
 
@@ -90,13 +81,13 @@ int main() {
 
     l.remove(l.size() - 1);
 
-    print_all(l);
+    cout << l << endl;
 
     cout << "Sublist." << endl;
 
     List<int> sub_list = l.sub_list(3, 6);
 
-    print_all(sub_list);
+    cout << sub_list << endl;
 
     cout << "Insert mode" << endl;
 
@@ -108,7 +99,7 @@ int main() {
 
     l.insert(667, l.size() -1);
 
-    print_all(l);
+    cout << l << endl;
 
     try {
         l.insert(1, 345);
@@ -120,7 +111,7 @@ int main() {
 
     l.clear();
 
-    print_all(l);
+    cout << l << endl;
 
     cout << "New length: " << l.size() << '\n';
 
@@ -134,7 +125,7 @@ int main() {
     l2.append("abc");
     l2.append("efg");
 
-    print_all(l2);
+    cout << l2 << endl;
 
     cout << l2[1] << endl;
     cout << l2[0] << endl;
@@ -142,5 +133,5 @@ int main() {
     List<int> l3;
     l3.insert(10, 0);
 
-    print_all(l3);
+    cout << l3 << endl;
 }

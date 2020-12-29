@@ -19,7 +19,7 @@ template <class T>
 void List<T>::resize_if_necessary() {
     if (length >= max_length) {
         max_length += 10;
-        
+
         T *new_array = new T[max_length];
 
         for (int i = 0; i < length; i++) {
@@ -57,7 +57,7 @@ template <class T>
 void List<T>::clear() {
     max_length = INITIAL_MAX_LENGTH;
     length = 0;
-        
+
     delete array;
     array = new T[max_length];
 }
@@ -161,6 +161,21 @@ void List<T>::insert(T element, int index) {
 template <class T>
 T List<T>::operator[](int index) {
     return get(index);
+}
+
+template <class T>
+std::ostream &operator<<(std::ostream &os, List<T> &m) {
+    os << "[";
+
+    for (int i = 0; i < m.size(); i++) {
+        if (i == m.size() - 1) {
+            os << m[i] << "]";
+        } else {
+            os << m[i] << ", ";
+        }
+    }
+
+    return os;
 }
 
 #endif
