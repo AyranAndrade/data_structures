@@ -169,11 +169,13 @@ std::ostream &operator<<(std::ostream &os, List<T> &m) {
 
     for (int i = 0; i < m.size(); i++) {
         if (i == m.size() - 1) {
-            os << m[i] << "]";
+            os << m[i];
         } else {
             os << m[i] << ", ";
         }
     }
+
+    os << "]";
 
     return os;
 }
