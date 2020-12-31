@@ -8,7 +8,9 @@
 using namespace std;
 
 HashSet::HashSet() {
-    table.append(LinkedList<int>());
+    for (int i = 0; i < INITIAL_CAPACITY; i++) {
+        table.append(LinkedList<int>());
+    }
 }
 
 int HashSet::get_hash(int element) {

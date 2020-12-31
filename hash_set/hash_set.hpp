@@ -27,6 +27,8 @@ class HashSet {
         List<LinkedList<int>> table;
 
         int length = 0;
+
+        const int INITIAL_CAPACITY = 10;
 };
 
 std::ostream& operator<<(std::ostream& os, HashSet& m);
