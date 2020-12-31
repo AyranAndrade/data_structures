@@ -68,7 +68,7 @@ void HashSet::remove(int element) {
     length--;
 }
 
-std::ostream& operator<<(std::ostream& os, HashSet& m) {
+ostream& operator<<(ostream& os, HashSet& m) {
     os << "(";
 
     LinkedList<int> elements = m.get_all();
