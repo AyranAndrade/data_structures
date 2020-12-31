@@ -5,16 +5,6 @@
 
 using namespace std;
 
-void print_all(HashSet set) {
-    cout << "Size: " << set.size() << endl;
-
-    LinkedList<int> elements = set.get_all();
-
-    for (int i = 0; i < elements.size(); i++) {
-        cout << elements.get(i) << endl;
-    }
-}
-
 int main() {
     // List<LinkedList<int>> test;
     // test.append(LinkedList<int>());
@@ -65,7 +55,7 @@ int main() {
 
     cout << "--------------------------------------------------" << endl;
 
-    print_all(set);
+    cout << set << endl;
 
     cout << "Contains 4: " << set.contains(4) << endl;
 
@@ -75,7 +65,7 @@ int main() {
 
     set.remove(2);
 
-    print_all(set);
+    cout << set << endl;
 
     cout << "2 was removed." << endl;
 

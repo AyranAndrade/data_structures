@@ -27,4 +27,6 @@ class HashSet {
         int length = 0;
 };
 
+std::ostream& operator<<(std::ostream& os, HashSet& m);
+
 #endif
