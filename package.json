@@ -5,7 +5,8 @@
   "scripts": {
     "list": "g++ list/*.cpp list/*.hpp -o list.out && ./list.out",
     "linked_list": "g++ linked_list/*.cpp linked_list/*.hpp -o linked_list.out && ./linked_list.out",
-    "list_set": "g++ list_set/*.cpp list_set/*.hpp -o list_set.out && ./list_set.out"
+    "list_set": "g++ list_set/*.cpp list_set/*.hpp -o list_set.out && ./list_set.out",
+    "hash_set": "g++ hash_set/*.cpp hash_set/*.hpp -o hash_set.out && ./hash_set.out"
   },
   "author": "Ayran Andrade",
   "license": "ISC"
