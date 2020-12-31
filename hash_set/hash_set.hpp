@@ -16,6 +16,8 @@ class HashSet {
 
         LinkedList<int> get_all();
 
+        void clear();
+
         HashSet();
     private:
         int get_hash(int element);

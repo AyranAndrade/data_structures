@@ -35,4 +35,10 @@ int main() {
     } catch(invalid_argument& error) {
         cout << "I tried to remove 5 from set: " << error.what() << endl;
     }
+
+    cout << "I will clear the set" << endl;
+
+    set.clear();
+
+    cout << set << endl;
 }

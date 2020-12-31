@@ -86,4 +86,12 @@ ostream& operator<<(ostream& os, HashSet& m) {
     return os;
 }
 
+void HashSet::clear() {
+    for (int i = 0; i < table.size(); i++) {
+        table[i].clear();
+    }
+
+    length = 0;
+}
+
 #endif
