@@ -21,7 +21,23 @@ void HashSet<T>::init_table() {
 
 template<class T>
 int HashSet<T>::get_hash(T element) {
+    return hash<T>(element);
+}
+
+template<> inline
+int HashSet<int>::get_hash(int element) {
     return element;
+}
+
+template<> inline
+int HashSet<string>::get_hash(string element) {
+    int sum = 0;
+
+    for (int i = 0; i < element.length(); i++) {
+        sum += 3 * i + element[i] ;
+    }
+
+    return sum;
 }
 
 template<class T>
@@ -137,7 +153,7 @@ void HashSet<T>::resize(int new_capacity) {
     clear();
 
     for (int i = 0; i < new_capacity - INITIAL_CAPACITY; i++) {
-        table.append(LinkedList<int>());
+        table.append(LinkedList<T>());
     }
 
     for (int i = 0; i < elements.size(); i++) {

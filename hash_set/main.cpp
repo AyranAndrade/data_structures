@@ -99,4 +99,17 @@ int main() {
     cout << "5. capacity: " << set.capacity() << endl;
 
     cout << "5. size: " << set.size() << endl;
+
+    HashSet<string> set2;
+
+    set2.add("abc");
+    set2.add("def");
+    set2.add("abc");
+    set2.add("abcd");
+
+    cout << set2 << endl;
+
+    cout << "6. capacity: " << set2.capacity() << endl;
+
+    cout << "6. size: " << set2.size() << endl;
 }
