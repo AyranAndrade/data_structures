@@ -4,17 +4,18 @@
 #include "../list/list.hpp"
 #include "../linked_list/linked_list.hpp"
 
+template<class T>
 class HashSet {
     public:
-        void add(int element);
+        void add(T element);
 
-        void remove(int element);
+        void remove(T element);
 
-        bool contains(int element);
+        bool contains(T element);
 
         int size();
 
-        LinkedList<int> get_all();
+        LinkedList<T> get_all();
 
         void clear();
 
@@ -22,7 +23,7 @@ class HashSet {
 
         HashSet();
     private:
-        int get_hash(int element);
+        int get_hash(T element);
 
         int get_index_using_hash(int hash);
 
@@ -32,13 +33,16 @@ class HashSet {
 
         void init_table();
 
-        List<LinkedList<int>> table;
+        List<LinkedList<T>> table;
 
         int length = 0;
 
         const int INITIAL_CAPACITY = 10;
 };
 
-std::ostream& operator<<(std::ostream& os, HashSet& m);
+template<class T>
+std::ostream& operator<<(std::ostream& os, HashSet<T>& m);
+
+#include "hash_set.cpp"
 
 #endif

@@ -7,21 +7,25 @@
 
 using namespace std;
 
-HashSet::HashSet() {
+template<class T>
+HashSet<T>::HashSet() {
     init_table();
 }
 
-void HashSet::init_table() {
+template<class T>
+void HashSet<T>::init_table() {
     for (int i = 0; i < INITIAL_CAPACITY; i++) {
-        table.append(LinkedList<int>());
+        table.append(LinkedList<T>());
     }
 }
 
-int HashSet::get_hash(int element) {
+template<class T>
+int HashSet<T>::get_hash(T element) {
     return element;
 }
 
-int HashSet::get_index_using_hash(int hash) {
+template<class T>
+int HashSet<T>::get_index_using_hash(int hash) {
     int abs_hash = hash;
 
     if (abs_hash < 0) {
@@ -31,12 +35,14 @@ int HashSet::get_index_using_hash(int hash) {
     return abs_hash % table.size();
 }
 
-int HashSet::size() {
+template<class T>
+int HashSet<T>::size() {
     return length;
 }
 
-LinkedList<int> HashSet::get_all() {
-    LinkedList<int> all_elements;
+template<class T>
+LinkedList<T> HashSet<T>::get_all() {
+    LinkedList<T> all_elements;
 
     for (int i = 0; i < table.size(); i++) {
         for (int j = 0; j < table[i].size(); j++) {
@@ -47,15 +53,17 @@ LinkedList<int> HashSet::get_all() {
     return all_elements;
 }
 
-bool HashSet::contains(int element) {
+template<class T>
+bool HashSet<T>::contains(T element) {
     int index = get_index_using_hash(get_hash(element));
 
-    LinkedList<int> list = table[index];
+    LinkedList<T> list = table[index];
 
     return list.contains(element);
 }
 
-void HashSet::add(int element) {
+template<class T>
+void HashSet<T>::add(T element) {
     int hash_value = get_hash(element);
     int index = get_index_using_hash(hash_value);
 
@@ -66,7 +74,8 @@ void HashSet::add(int element) {
     }
 }
 
-void HashSet::remove(int element) {
+template<class T>
+void HashSet<T>::remove(T element) {
     int hash_value = get_hash(element);
     int index = get_index_using_hash(hash_value);
 
@@ -77,10 +86,11 @@ void HashSet::remove(int element) {
     resize_if_necessary();
 }
 
-ostream& operator<<(ostream& os, HashSet& m) {
+template<class T>
+ostream& operator<<(ostream& os, HashSet<T>& m) {
     os << "(";
 
-    LinkedList<int> elements = m.get_all();
+    LinkedList<T> elements = m.get_all();
 
     for (int i = 0; i < elements.size(); i++) {
         if (i == elements.size() - 1) {
@@ -95,7 +105,8 @@ ostream& operator<<(ostream& os, HashSet& m) {
     return os;
 }
 
-void HashSet::clear() {
+template<class T>
+void HashSet<T>::clear() {
     for (int i = 0; i < table.size(); i++) {
         table[i].clear();
     }
@@ -107,7 +118,8 @@ void HashSet::clear() {
     init_table();
 }
 
-void HashSet::resize_if_necessary() {
+template<class T>
+void HashSet<T>::resize_if_necessary() {
     float float_length = (float) length;
     float float_table_size = (float) table.size();
     float load = float_length/float_table_size;
@@ -119,8 +131,9 @@ void HashSet::resize_if_necessary() {
     }
 }
 
-void HashSet::resize(int new_capacity) {
-    LinkedList<int> elements = get_all();
+template<class T>
+void HashSet<T>::resize(int new_capacity) {
+    LinkedList<T> elements = get_all();
     clear();
 
     for (int i = 0; i < new_capacity - INITIAL_CAPACITY; i++) {
@@ -138,7 +151,8 @@ void HashSet::resize(int new_capacity) {
     }
 }
 
-int HashSet::capacity() {
+template<class T>
+int HashSet<T>::capacity() {
     return table.size();
 }
 

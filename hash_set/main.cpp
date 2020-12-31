@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    HashSet set;
+    HashSet<int> set;
 
     cout << "1. capacity: " << set.capacity() << endl;
 
