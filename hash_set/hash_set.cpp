@@ -8,6 +8,10 @@
 using namespace std;
 
 HashSet::HashSet() {
+    init_table();
+}
+
+void HashSet::init_table() {
     for (int i = 0; i < INITIAL_CAPACITY; i++) {
         table.append(LinkedList<int>());
     }
@@ -58,6 +62,7 @@ void HashSet::add(int element) {
     if (!table[index].contains(element)) {
         table[index].insert(element, 0);
         length++;
+        resize_if_necessary();
     }
 }
 
@@ -68,6 +73,8 @@ void HashSet::remove(int element) {
     int element_index = table[index].index_of(element);
     table[index].remove(element_index);
     length--;
+
+    resize_if_necessary();
 }
 
 ostream& operator<<(ostream& os, HashSet& m) {
@@ -94,6 +101,45 @@ void HashSet::clear() {
     }
 
     length = 0;
+
+    table.clear();
+
+    init_table();
+}
+
+void HashSet::resize_if_necessary() {
+    float float_length = (float) length;
+    float float_table_size = (float) table.size();
+    float load = float_length/float_table_size;
+
+    if (load > 0.75) {
+        int new_capacity = capacity() + 10;
+
+        resize(new_capacity);
+    }
+}
+
+void HashSet::resize(int new_capacity) {
+    LinkedList<int> elements = get_all();
+    clear();
+
+    for (int i = 0; i < new_capacity - INITIAL_CAPACITY; i++) {
+        table.append(LinkedList<int>());
+    }
+
+    for (int i = 0; i < elements.size(); i++) {
+        int hash_value = get_hash(elements[i]);
+
+        int index = get_index_using_hash(hash_value);
+
+        table[index].insert(elements[i], 0);
+
+        length++;
+    }
+}
+
+int HashSet::capacity() {
+    return table.size();
 }
 
 #endif

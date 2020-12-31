@@ -18,11 +18,19 @@ class HashSet {
 
         void clear();
 
+        int capacity();
+
         HashSet();
     private:
         int get_hash(int element);
 
         int get_index_using_hash(int hash);
+
+        void resize_if_necessary();
+
+        void resize(int new_capacity);
+
+        void init_table();
 
         List<LinkedList<int>> table;
 
