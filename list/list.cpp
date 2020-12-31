@@ -32,7 +32,7 @@ void List<T>::resize_if_necessary() {
 }
 
 template <class T>
-T List<T>::get(int index) {
+T& List<T>::get(int index) {
     if (index >= 0 && index < length) {
         return array[index];
     }
@@ -159,7 +159,7 @@ void List<T>::insert(T element, int index) {
 }
 
 template <class T>
-T List<T>::operator[](int index) {
+T& List<T>::operator[](int index) {
     return get(index);
 }
 

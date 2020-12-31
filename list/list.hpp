@@ -5,7 +5,7 @@ template<class T>
 class List {
     public:
         void append(T element);
-        T get(int index);
+        T& get(int index);
         int size();
         void clear();
         bool contains(T element);
@@ -14,7 +14,7 @@ class List {
         void remove(int index);
         void insert(T element, int index);
         List sub_list(int from, int to);
-        T operator[](int index);
+        T& operator[](int index);
         List();
     private:
         List(T *array, int max_length, int length);
