@@ -8,7 +8,7 @@ HashSet::HashSet() {
 }
 
 int HashSet::get_hash(int element) {
-    return 0;
+    return element;
 }
 
 int HashSet::get_index_using_hash(int hash) {
