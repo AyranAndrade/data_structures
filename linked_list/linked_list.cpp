@@ -35,7 +35,7 @@ int LinkedList<T>::size() {
 }
 
 template <class T>
-T LinkedList<T>::get(int index) {
+T& LinkedList<T>::get(int index) {
     if (index >= 0 && index < length) {
         Node<T>* pointer = &head;
         int counter = 0;
@@ -241,7 +241,7 @@ void LinkedList<T>::insert(T element, int index) {
 }
 
 template <class T>
-T LinkedList<T>::operator[](int index) {
+T& LinkedList<T>::operator[](int index) {
     return get(index);
 }
 

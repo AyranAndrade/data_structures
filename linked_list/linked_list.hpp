@@ -14,7 +14,7 @@ template <class T>
 class LinkedList {
     public:
         void append(T element);
-        T get(int index);
+        T& get(int index);
         int size();
         void clear();
         bool contains(T element);
@@ -23,7 +23,7 @@ class LinkedList {
         void remove(int index);
         void insert(T element, int index);
         LinkedList sub_list(int from, int to);
-        T operator[](int index);
+        T& operator[](int index);
         LinkedList();
     private:
         LinkedList(Node<T> head, int length);
