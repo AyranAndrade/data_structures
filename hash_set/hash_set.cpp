@@ -1,7 +1,11 @@
 #ifndef _HASH_SET_CPP_
 #define _HASH_SET_CPP_
 
+#include <cmath>
+
 #include "hash_set.hpp"
+
+using namespace std;
 
 HashSet::HashSet() {
     table.append(LinkedList<int>());
@@ -12,7 +16,13 @@ int HashSet::get_hash(int element) {
 }
 
 int HashSet::get_index_using_hash(int hash) {
-    return hash % table.size();
+    int abs_hash = hash;
+
+    if (abs_hash < 0) {
+        abs_hash = abs(abs_hash);
+    }
+
+    return abs_hash % table.size();
 }
 
 int HashSet::size() {
