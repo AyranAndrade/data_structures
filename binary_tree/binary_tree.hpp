@@ -7,14 +7,15 @@ using namespace std;
 
 class Leaf {
     public:
-        Leaf* left;
-        Leaf* right;
-        int data;
+        Leaf* left = NULL;
+        Leaf* right = NULL;
+        int data = (int)NULL;
 };
 
 class BinaryTree {
     public:
         Leaf root;
+        void pre_order(Leaf* leaf);
 };
 
 ostream& operator<<(ostream& os, BinaryTree& tree);
