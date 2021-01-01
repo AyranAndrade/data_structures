@@ -8,7 +8,7 @@
 using namespace std;
 
 ostream& operator<<(ostream& os, BinaryTree& tree) {
-    tree.in_order(&tree.root);
+    tree.post_order(&tree.root);
     return os;
 }
 
@@ -25,6 +25,14 @@ void BinaryTree::in_order(Leaf* leaf) {
         pre_order(leaf->left);
         cout << leaf->data << " ";
         pre_order(leaf->right);
+    }
+}
+
+void BinaryTree::post_order(Leaf* leaf) {
+    if (leaf != NULL) {
+        pre_order(leaf->left);
+        pre_order(leaf->right);
+        cout << leaf->data << " ";
     }
 }
 
