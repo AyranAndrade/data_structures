@@ -16,6 +16,7 @@ class BinaryTree {
     public:
         Leaf root;
         void pre_order(Leaf* leaf);
+        void in_order(Leaf* leaf);
 };
 
 ostream& operator<<(ostream& os, BinaryTree& tree);
