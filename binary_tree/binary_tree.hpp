@@ -20,6 +20,7 @@ class BinaryTree {
         void in_order(Leaf* leaf);
         void post_order(Leaf* leaf);
         int get_height();
+        bool breadth_first_search(int data);
     private:
         int get_height(Leaf* leaf);
 };

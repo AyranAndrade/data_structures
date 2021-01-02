@@ -19,4 +19,10 @@ int main() {
     cout << tree << endl;
 
     cout << "Height: " << tree.get_height() << endl;
+
+    cout << "1. BFS contains 2: " << tree.breadth_first_search(2) << endl;
+
+    cout << "2. BFS contains 4: " << tree.breadth_first_search(4) << endl;
+
+    cout << "3. BFS contains 8: " << tree.breadth_first_search(8) << endl;
 }
