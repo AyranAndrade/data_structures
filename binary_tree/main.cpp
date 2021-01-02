@@ -13,6 +13,10 @@ int main() {
     tree.root.data = 1;
     tree.root.left->data = 0;
     tree.root.right->data = 2;
+    tree.root.left->left = new Leaf();
+    tree.root.left->left->data = 4;
 
     cout << tree << endl;
+
+    cout << "Height: " << tree.get_height() << endl;
 }

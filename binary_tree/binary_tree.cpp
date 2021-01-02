@@ -2,6 +2,7 @@
 #define _BINARY_TREE_CPP_
 
 #include <iostream>
+#include <cmath>
 
 #include "binary_tree.hpp"
 
@@ -33,6 +34,18 @@ void BinaryTree::post_order(Leaf* leaf) {
         pre_order(leaf->left);
         pre_order(leaf->right);
         cout << leaf->data << " ";
+    }
+}
+
+int BinaryTree::get_height() {
+    return get_height(&root);
+}
+
+int BinaryTree::get_height(Leaf* leaf) {
+    if (leaf == NULL) {
+        return 0;
+    } else {
+        return max(get_height(leaf->left), get_height(leaf->right)) + 1;
     }
 }
 

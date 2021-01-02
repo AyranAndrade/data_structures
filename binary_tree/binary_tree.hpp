@@ -18,6 +18,9 @@ class BinaryTree {
         void pre_order(Leaf* leaf);
         void in_order(Leaf* leaf);
         void post_order(Leaf* leaf);
+        int get_height();
+    private:
+        int get_height(Leaf* leaf);
 };
 
 ostream& operator<<(ostream& os, BinaryTree& tree);
