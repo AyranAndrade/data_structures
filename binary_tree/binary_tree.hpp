@@ -10,6 +10,7 @@ class Leaf {
         Leaf* left = NULL;
         Leaf* right = NULL;
         int data = (int)NULL;
+        bool operator==(Leaf& leaf);
 };
 
 class BinaryTree {

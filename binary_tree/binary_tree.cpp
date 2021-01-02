@@ -8,6 +8,10 @@
 
 using namespace std;
 
+bool Leaf::operator==(Leaf& leaf) {
+    return this->data == leaf.data && &this->left == &leaf.left && &this->right == &leaf.right;
+}
+
 ostream& operator<<(ostream& os, BinaryTree& tree) {
     tree.post_order(&tree.root);
     return os;
