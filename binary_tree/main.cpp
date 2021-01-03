@@ -25,4 +25,12 @@ int main() {
     cout << "2. BFS contains 4: " << tree.breadth_first_search(4) << endl;
 
     cout << "3. BFS contains 8: " << tree.breadth_first_search(8) << endl;
+
+    cout << "-------------------------------" << endl;
+
+    cout << "1. DFS contains 2: " << tree.depth_first_search(2) << endl;
+
+    cout << "2. DFS contains 4: " << tree.depth_first_search(4) << endl;
+
+    cout << "3. DFS contains 8: " << tree.depth_first_search(8) << endl;
 }

@@ -82,4 +82,35 @@ bool BinaryTree::breadth_first_search(int data) {
     return false;
 }
 
+bool BinaryTree::depth_first_search(int data) {
+    List<Leaf> stack;
+    List<Leaf> visited_leaves;
+    stack.append(root);
+    visited_leaves.append(root);
+
+    while (stack.size() != 0) {
+        int last_index = stack.size() - 1;
+        Leaf current_leaf = stack[last_index];
+        stack.remove(last_index);
+
+        if (current_leaf.data == data) {
+            return true;
+        }
+
+        if (!visited_leaves.contains(current_leaf)) {
+            visited_leaves.append(current_leaf);
+
+            if (current_leaf.right != NULL) {
+                stack.append(*current_leaf.right);
+            }
+
+            if (current_leaf.left != NULL) {
+                stack.append(*current_leaf.left);
+            }
+        }
+    }
+
+    return false;
+}
+
 #endif
