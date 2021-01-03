@@ -113,4 +113,22 @@ bool BinaryTree::depth_first_search(int data) {
     return false;
 }
 
+bool BinaryTree::binary_search(int data) {
+    return binary_search(&root, data);
+}
+
+bool BinaryTree::binary_search(Leaf* leaf, int data) {
+    if (leaf == NULL) {
+        return false;
+    }
+
+    if (leaf->data < data) {
+        return binary_search(leaf->right, data);
+    } else if (leaf->data > data) {
+        return binary_search(leaf->left, data);
+    }
+
+    return true;
+}
+
 #endif

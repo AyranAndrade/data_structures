@@ -22,8 +22,10 @@ class BinaryTree {
         int get_height();
         bool breadth_first_search(int data);
         bool depth_first_search(int data);
+        bool binary_search(int data);
     private:
         int get_height(Leaf* leaf);
+        bool binary_search(Leaf* leaf, int data);
 };
 
 ostream& operator<<(ostream& os, BinaryTree& tree);
