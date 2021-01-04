@@ -1,13 +1,15 @@
 #include "binary_search_tree.hpp"
 
 void BinarySearchTree::add(int element) {
-    if (quantity_of_elements == 0) {
-        root.data = element;
-    } else {
-        add(&root, &root, element);
-    }
+    if (!contains(element)) {
+        if (quantity_of_elements == 0) {
+            root.data = element;
+        } else {
+            add(&root, &root, element);
+        }
 
-    quantity_of_elements++;
+        quantity_of_elements++;
+    }
 }
 
 void BinarySearchTree::add(Leaf* leaf, Leaf* previous, int element) {
