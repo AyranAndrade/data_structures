@@ -16,7 +16,7 @@ class BinarySearchTree {
         bool contains(int element);
         int height();
         int count_elements();
-        void pre_order();
+        void print();
     private:
         int quantity_of_elements = 0;
         Leaf root;

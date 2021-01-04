@@ -30,40 +30,23 @@ void BinarySearchTree::add(Leaf* leaf, Leaf* previous, int element) {
 }
 
 ostream& operator<<(ostream& os, BinarySearchTree& tree) {
-    tree.pre_order();
+    tree.print();
     return os;
 }
 
-void BinarySearchTree::pre_order() {
+void BinarySearchTree::print() {
     printBT("", &root, false);
-
-    cout << endl << endl;
-
-    if (quantity_of_elements != 0) {
-        cout << "Quantity of elements: " << quantity_of_elements << endl;
-        pre_order(&root);
-    }
 }
 
-void BinarySearchTree::pre_order(Leaf* leaf) {
-    if (leaf != NULL) {
-        cout << leaf->data << " ";
-        pre_order(leaf->left);
-        pre_order(leaf->right);
-    }
-}
-
-void BinarySearchTree::printBT(const std::string& prefix, Leaf* node, bool isLeft) {
+void BinarySearchTree::printBT(const string& prefix, Leaf* node, bool isLeft) {
     if( node != nullptr )
     {
-        std::cout << prefix;
+        cout << prefix;
 
-        std::cout << (isLeft ? "├──" : "└──" );
+        cout << (isLeft ? "├──" : "└──" );
 
-        // print the value of the node
-        std::cout << node->data << std::endl;
+        cout << node->data << endl;
 
-        // enter the next tree level - left and right branch
         printBT( prefix + (isLeft ? "│   " : "    "), node->left, true);
         printBT( prefix + (isLeft ? "│   " : "    "), node->right, false);
     }
