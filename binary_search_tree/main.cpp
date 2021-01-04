@@ -15,5 +15,6 @@ int main() {
     tree.add(9);
     tree.add(23);
 
+    cout << "Quantity of elements: " << tree.count_elements() << endl;
     cout << tree << endl;
 }

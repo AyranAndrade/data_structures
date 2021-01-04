@@ -29,6 +29,10 @@ void BinarySearchTree::add(Leaf* leaf, Leaf* previous, int element) {
     }
 }
 
+int BinarySearchTree::count_elements() {
+    return quantity_of_elements;
+}
+
 ostream& operator<<(ostream& os, BinarySearchTree& tree) {
     tree.print();
     return os;
