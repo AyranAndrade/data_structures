@@ -8,7 +8,8 @@
     "list_set": "g++ list_set/*.cpp list_set/*.hpp -o list_set.out && ./list_set.out",
     "hash_set": "g++ hash_set/*.cpp hash_set/*.hpp -o hash_set.out && ./hash_set.out",
     "list_queue": "g++ list_queue/*.cpp list_queue/*.hpp -o list_queue.out && ./list_queue.out",
-    "binary_tree": "g++ binary_tree/*.cpp binary_tree/*.hpp -o binary_tree.out && ./binary_tree.out"
+    "binary_tree": "g++ binary_tree/*.cpp binary_tree/*.hpp -o binary_tree.out && ./binary_tree.out",
+    "binary_search_tree": "g++ binary_search_tree/*.cpp binary_search_tree/*.hpp -o binary_search_tree.out && ./binary_search_tree.out"
   },
   "author": "Ayran Andrade",
   "license": "ISC"
