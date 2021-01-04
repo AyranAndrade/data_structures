@@ -134,4 +134,25 @@ int main() {
     l3.insert(10, 0);
 
     cout << l3 << endl;
+
+    cout << "Bubble sort" << endl;
+
+    List<int> bubble;
+
+    cout << "Append to bubble sort." << endl;
+
+    bubble.append(5);
+    bubble.append(1);
+    bubble.append(4);
+    bubble.append(2);
+    bubble.append(8);
+    bubble.append(3);
+
+    cout << "List before the bubble: " << bubble << endl;
+
+    cout << "I will do the bubble sort" << endl;
+
+    bubble.bubble_sort();
+
+    cout << "List after the bubble: " << bubble << endl;
 }
