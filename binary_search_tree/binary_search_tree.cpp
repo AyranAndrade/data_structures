@@ -33,6 +33,24 @@ int BinarySearchTree::count_elements() {
     return quantity_of_elements;
 }
 
+bool BinarySearchTree::contains(int element) {
+    return binary_search(&root, element);
+}
+
+bool BinarySearchTree::binary_search(Leaf* leaf, int element) {
+    if (leaf == NULL) {
+        return false;
+    } else {
+        if (leaf->data > element) {
+            return binary_search(leaf->left, element);
+        } else if (leaf->data < element) {
+            return binary_search(leaf->right, element);
+        }
+    }
+
+    return true;
+}
+
 ostream& operator<<(ostream& os, BinarySearchTree& tree) {
     tree.print();
     return os;

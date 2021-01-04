@@ -21,6 +21,7 @@ class BinarySearchTree {
         int quantity_of_elements = 0;
         Leaf root;
         void add(Leaf* leaf, Leaf* previous, int element);
+        bool binary_search(Leaf* leaf, int element);
         void printBT(const std::string& prefix, Leaf* node, bool isLeft);
 };
 
