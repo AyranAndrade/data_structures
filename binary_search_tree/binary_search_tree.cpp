@@ -35,6 +35,25 @@ int BinarySearchTree::count_elements() {
     return quantity_of_elements;
 }
 
+int BinarySearchTree::height() {
+    return height(&root);
+}
+
+int BinarySearchTree::height(Leaf* leaf) {
+    if (leaf == NULL) {
+        return 0;
+    } else {
+        int right_leaf_height = height(leaf->right);
+        int left_leaf_height = height(leaf->left);
+
+        if (right_leaf_height > left_leaf_height) {
+            return right_leaf_height + 1;
+        } else {
+            return left_leaf_height + 1;
+        }
+    }
+}
+
 bool BinarySearchTree::contains(int element) {
     return binary_search(&root, element);
 }

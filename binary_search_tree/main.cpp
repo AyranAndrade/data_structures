@@ -16,5 +16,6 @@ int main() {
     tree.add(23);
 
     cout << "Quantity of elements: " << tree.count_elements() << endl;
+    cout << "Height: " << tree.height() << endl;
     cout << tree << endl;
 }
