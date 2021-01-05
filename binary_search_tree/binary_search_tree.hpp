@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "../list/list.hpp"
+
 using namespace std;
 
 class Leaf {
@@ -22,6 +24,8 @@ class BinarySearchTree {
         Leaf root;
         void add(Leaf* leaf, Leaf* previous, int element);
         bool binary_search(Leaf* leaf, int element);
+        List<Leaf> as_list(List<Leaf>& list, Leaf* leaf);
+        Leaf* find_parent(Leaf* leaf, Leaf* parent, int element);
         int height(Leaf* leaf);
         void printBT(const std::string& prefix, Leaf* node, bool isLeft);
 };

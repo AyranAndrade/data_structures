@@ -72,6 +72,64 @@ bool BinarySearchTree::binary_search(Leaf* leaf, int element) {
     return true;
 }
 
+void BinarySearchTree::remove(int element) {
+    Leaf* parent = find_parent(&root, &root, element);
+
+    if (parent != NULL) {
+        List<Leaf> left_children;
+
+        List<Leaf> right_children;
+
+        if (parent->left != NULL && parent->left->data == element) {
+            left_children = as_list(left_children, parent->left->left);
+
+            right_children = as_list(right_children, parent->left->right);
+
+            delete parent->left;
+        } else if (parent->right != NULL && parent->right->data == element) {
+            left_children = as_list(left_children, parent->right->left);
+
+            right_children = as_list(right_children, parent->right->right);
+
+            delete parent->right;
+        }
+
+        quantity_of_elements--;
+
+        for (int i = 0; i < left_children.size(); i++) {
+            add(parent, parent, left_children[i].data);
+        }
+
+        for (int i = 0; i < right_children.size(); i++) {
+            add(parent, parent, right_children[i].data);
+        }
+    }
+}
+
+Leaf* BinarySearchTree::find_parent(Leaf* leaf, Leaf* parent, int element) {
+    if (leaf == NULL) {
+        return NULL;
+    } else {
+        if (leaf->data > element) {
+            return find_parent(leaf->left, leaf, element);
+        } else if (leaf->data < element) {
+            return find_parent(leaf->right, leaf, element);
+        }
+    }
+
+    return parent;
+}
+
+List<Leaf> BinarySearchTree::as_list(List<Leaf>& list, Leaf* leaf) {
+    if (leaf != NULL) {
+        list.append(*leaf);
+        as_list(list, leaf->left);
+        as_list(list, leaf->right);
+    }
+
+    return list;
+}
+
 ostream& operator<<(ostream& os, BinarySearchTree& tree) {
     tree.print();
     return os;

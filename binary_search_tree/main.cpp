@@ -18,4 +18,12 @@ int main() {
     cout << "Quantity of elements: " << tree.count_elements() << endl;
     cout << "Height: " << tree.height() << endl;
     cout << tree << endl;
+
+    cout << "I will remove everything" << endl << endl;
+
+    tree.remove(7);
+
+    cout << "Quantity of elements: " << tree.count_elements() << endl;
+    cout << "Height: " << tree.height() << endl;
+    cout << tree << endl;
 }
