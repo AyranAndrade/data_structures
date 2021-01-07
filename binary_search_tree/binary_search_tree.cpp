@@ -118,30 +118,6 @@ Leaf* BinarySearchTree::remove(Leaf* leaf, int element) {
     return NULL;
 }
 
-Leaf* BinarySearchTree::find_parent(Leaf* leaf, Leaf* parent, int element) {
-    if (leaf == NULL) {
-        return NULL;
-    } else {
-        if (leaf->data > element) {
-            return find_parent(leaf->left, leaf, element);
-        } else if (leaf->data < element) {
-            return find_parent(leaf->right, leaf, element);
-        }
-    }
-
-    return parent;
-}
-
-List<Leaf> BinarySearchTree::as_list(List<Leaf>& list, Leaf* leaf) {
-    if (leaf != NULL) {
-        list.append(*leaf);
-        as_list(list, leaf->left);
-        as_list(list, leaf->right);
-    }
-
-    return list;
-}
-
 ostream& operator<<(ostream& os, BinarySearchTree& tree) {
     tree.print();
     return os;

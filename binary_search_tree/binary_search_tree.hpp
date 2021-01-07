@@ -27,8 +27,6 @@ class BinarySearchTree {
         Leaf* remove(Leaf* leaf, int element);
         bool binary_search(Leaf* leaf, int element);
         Leaf* find_min_value(Leaf* leaf);
-        List<Leaf> as_list(List<Leaf>& list, Leaf* leaf);
-        Leaf* find_parent(Leaf* leaf, Leaf* parent, int element);
         int height(Leaf* leaf);
         void printBT(const std::string& prefix, Leaf* node, bool isLeft);
 };
