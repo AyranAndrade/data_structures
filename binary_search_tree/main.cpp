@@ -21,7 +21,7 @@ int main() {
 
     cout << "Min value: " << tree.find_min_value() << endl;
 
-    cout << "I will remove everything" << endl << endl;
+    cout << "Remove 7" << endl << endl;
 
     tree.remove(7);
 
@@ -44,7 +44,7 @@ int main() {
     cout << "Height: " << t1.height() << endl;
     cout << t1 << endl;
 
-    cout << "Remove" << endl;
+    cout << "Remove 5" << endl;
 
     t1.remove(5);
 
