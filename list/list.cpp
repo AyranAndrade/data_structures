@@ -193,4 +193,38 @@ void List<T>::bubble_sort() {
     }
 }
 
+template <class T>
+T List<T>::max() {
+    if (length >= 2) {
+        int mid_value = (length-1)/2;
+        return max(0, length-1);
+    } else {
+        if (length == 0) {
+            return (T)NULL;
+        } else {
+            return array[0];
+        }
+    }
+}
+
+template <class T>
+T List<T>::max(int start, int end) {
+    if (start == end - 1) {
+        if (array[start] > array[end]) {
+            return array[start];
+        } else {
+            return array[end];
+        }
+    } else {
+        int mid_index = (end - start)/2 + start;
+        int first_value = max(start, mid_index);
+        int second_value = max(mid_index, end);
+        if (first_value > second_value) {
+            return first_value;
+        } else {
+            return second_value;
+        }
+    }
+}
+
 #endif

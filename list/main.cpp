@@ -36,6 +36,8 @@ int main() {
     l.append(21);
     l.append(22);
 
+    cout << "Max value: " << l.max() << endl;
+
     cout << l << endl;
 
     cout << "Get: " << l.get(3) << '\n';
@@ -135,6 +137,28 @@ int main() {
 
     cout << l3 << endl;
 
+    List<int> l4;
+
+    cout << "Max value: " << l4.max() << endl;
+
+    l4.append(8);
+
+    cout << "Max value: " << l4.max() << endl;
+
+    l4.append(3);
+
+    cout << "Max value: " << l4.max() << endl;
+
+    l4.append(10);
+
+    cout << "Max value: " << l4.max() << endl;
+
+    l4.append(1);
+
+    cout << "Max value: " << l4.max() << endl;
+
+    cout << l4 << endl;
+
     cout << "Bubble sort" << endl;
 
     List<int> bubble;
@@ -147,6 +171,8 @@ int main() {
     bubble.append(2);
     bubble.append(8);
     bubble.append(3);
+
+    cout << "Max value: " << bubble.max() << endl;
 
     cout << "List before the bubble: " << bubble << endl;
 

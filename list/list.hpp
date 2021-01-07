@@ -26,6 +26,8 @@ class List {
 
         void bubble_sort();
 
+        T max();
+
         T& operator[](int index);
 
         List();
@@ -33,6 +35,8 @@ class List {
         List(T *array, int max_length, int length);
 
         void resize_if_necessary();
+
+        T max(int start, int end);
 
         T *array = new T[10];
 
