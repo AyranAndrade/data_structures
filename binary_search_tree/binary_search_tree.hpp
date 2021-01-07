@@ -22,7 +22,8 @@ class BinarySearchTree {
     private:
         int quantity_of_elements = 0;
         Leaf root;
-        void add(Leaf* leaf, Leaf* previous, int element);
+        Leaf* add(Leaf* leaf, int element);
+        Leaf* remove(Leaf* leaf, int element);
         bool binary_search(Leaf* leaf, int element);
         List<Leaf> as_list(List<Leaf>& list, Leaf* leaf);
         Leaf* find_parent(Leaf* leaf, Leaf* parent, int element);

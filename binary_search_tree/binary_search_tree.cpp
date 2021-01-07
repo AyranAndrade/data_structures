@@ -5,30 +5,26 @@ void BinarySearchTree::add(int element) {
         if (quantity_of_elements == 0) {
             root.data = element;
         } else {
-            add(&root, &root, element);
+            add(&root, element);
         }
 
         quantity_of_elements++;
     }
 }
 
-void BinarySearchTree::add(Leaf* leaf, Leaf* previous, int element) {
+Leaf* BinarySearchTree::add(Leaf* leaf, int element) {
     if (leaf == NULL) {
         leaf = new Leaf();
         leaf->data = element;
-
-        if (previous->data < element) {
-            previous->right = leaf;
-        } else if (previous->data > element) {
-            previous->left = leaf;
-        }
     } else {
-        if (leaf->data > element) {
-            add(leaf->left, leaf, element);
-        } else if (leaf->data < element) {
-            add(leaf->right, leaf, element);
+        if (leaf->data < element) {
+            leaf->right = add(leaf->right, element);
+        } else {
+            leaf->left = add(leaf->left, element);
         }
     }
+
+    return leaf;
 }
 
 int BinarySearchTree::count_elements() {
@@ -97,11 +93,11 @@ void BinarySearchTree::remove(int element) {
         quantity_of_elements--;
 
         for (int i = 0; i < left_children.size(); i++) {
-            add(parent, parent, left_children[i].data);
+            add(parent, left_children[i].data);
         }
 
         for (int i = 0; i < right_children.size(); i++) {
-            add(parent, parent, right_children[i].data);
+            add(parent, right_children[i].data);
         }
     }
 }
