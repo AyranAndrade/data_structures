@@ -51,4 +51,12 @@ int main() {
     cout << "Quantity of elements: " << t1.count_elements() << endl;
     cout << "Height: " << t1.height() << endl;
     cout << t1 << endl;
+
+    cout << "Remove 4" << endl;
+
+    t1.remove(4);
+
+    cout << "Quantity of elements: " << t1.count_elements() << endl;
+    cout << "Height: " << t1.height() << endl;
+    cout << t1 << endl;
 }
