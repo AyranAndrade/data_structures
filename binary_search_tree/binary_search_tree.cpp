@@ -68,38 +68,54 @@ bool BinarySearchTree::binary_search(Leaf* leaf, int element) {
     return true;
 }
 
+int BinarySearchTree::find_min_value() {
+    return find_min_value(&root)->data;
+}
+
+Leaf* BinarySearchTree::find_min_value(Leaf* leaf) {
+    if (leaf->left == NULL) {
+        return leaf;
+    } else {
+        return find_min_value(leaf->left);
+    }
+}
+
 void BinarySearchTree::remove(int element) {
-    Leaf* parent = find_parent(&root, &root, element);
-
-    if (parent != NULL) {
-        List<Leaf> left_children;
-
-        List<Leaf> right_children;
-
-        if (parent->left != NULL && parent->left->data == element) {
-            left_children = as_list(left_children, parent->left->left);
-
-            right_children = as_list(right_children, parent->left->right);
-
-            delete parent->left;
-        } else if (parent->right != NULL && parent->right->data == element) {
-            left_children = as_list(left_children, parent->right->left);
-
-            right_children = as_list(right_children, parent->right->right);
-
-            delete parent->right;
-        }
-
+    if (quantity_of_elements > 0) {
+        remove(&root, element);
         quantity_of_elements--;
+    }
+}
 
-        for (int i = 0; i < left_children.size(); i++) {
-            add(parent, left_children[i].data);
-        }
-
-        for (int i = 0; i < right_children.size(); i++) {
-            add(parent, right_children[i].data);
+Leaf* BinarySearchTree::remove(Leaf* leaf, int element) {
+    if (leaf != NULL) {
+        if (leaf->data < element) {
+            leaf->right = remove(leaf->right, element);
+            return leaf;
+        } else if (leaf->data > element) {
+            leaf->left = remove(leaf->left, element);
+            return leaf;
+        } else {
+            if (leaf->left == NULL && leaf->right != NULL) {
+                Leaf* temporary_value = leaf->right;
+                delete leaf;
+                return temporary_value;
+            } else if (leaf->right == NULL && leaf->left != NULL) {
+                Leaf* temporary_value = leaf->left;
+                delete leaf;
+                return temporary_value;
+            } else if (leaf->right == NULL && leaf->left == NULL) {
+                delete leaf;
+                return NULL;
+            } else {
+                int min_value = find_min_value(leaf->right)->data;
+                leaf->data = min_value;
+                return remove(leaf->right, min_value);
+            }
         }
     }
+
+    return NULL;
 }
 
 Leaf* BinarySearchTree::find_parent(Leaf* leaf, Leaf* parent, int element) {

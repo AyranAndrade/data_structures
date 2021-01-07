@@ -19,12 +19,14 @@ class BinarySearchTree {
         int height();
         int count_elements();
         void print();
+        int find_min_value();
     private:
         int quantity_of_elements = 0;
         Leaf root;
         Leaf* add(Leaf* leaf, int element);
         Leaf* remove(Leaf* leaf, int element);
         bool binary_search(Leaf* leaf, int element);
+        Leaf* find_min_value(Leaf* leaf);
         List<Leaf> as_list(List<Leaf>& list, Leaf* leaf);
         Leaf* find_parent(Leaf* leaf, Leaf* parent, int element);
         int height(Leaf* leaf);
