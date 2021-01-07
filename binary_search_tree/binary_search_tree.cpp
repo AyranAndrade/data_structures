@@ -110,7 +110,8 @@ Leaf* BinarySearchTree::remove(Leaf* leaf, int element) {
             } else {
                 int min_value = find_min_value(leaf->right)->data;
                 leaf->data = min_value;
-                return remove(leaf->right, min_value);
+                leaf->right = remove(leaf->right, min_value);
+                return leaf;
             }
         }
     }

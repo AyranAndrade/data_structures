@@ -28,4 +28,27 @@ int main() {
     cout << "Quantity of elements: " << tree.count_elements() << endl;
     cout << "Height: " << tree.height() << endl;
     cout << tree << endl;
+
+    cout << "----------------------------------" << endl;
+
+    BinarySearchTree t1;
+
+    t1.add(19);
+    t1.add(5);
+    t1.add(21);
+    t1.add(25);
+    t1.add(7);
+    t1.add(4);
+
+    cout << "Quantity of elements: " << t1.count_elements() << endl;
+    cout << "Height: " << t1.height() << endl;
+    cout << t1 << endl;
+
+    cout << "Remove" << endl;
+
+    t1.remove(5);
+
+    cout << "Quantity of elements: " << t1.count_elements() << endl;
+    cout << "Height: " << t1.height() << endl;
+    cout << t1 << endl;
 }
