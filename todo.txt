@@ -2,3 +2,4 @@ replace npm by make
 install gdb on VS code
 remove redefinition of MAX_INITIAL_LENGTH from the private constructor of list
 add functions that encapsulates conditions used on ifs (clean code)
+write unit tests
