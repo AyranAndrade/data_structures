@@ -1,0 +1,8 @@
+go to https://github.com/google/googletest
+go to releases tab
+download source code from the latest version
+extract it to a folder and go to this folder
+execute "sudo cmake CMakeLists.txt"
+execute "sudo make"
+execute "sudo make install"
+execute "g++ test.cpp -std=c++17 -lgtest -lpthread && ./a.out"
