@@ -1,16 +1,16 @@
 ############################################# GENERAL #############################################
 clean :
-	rm -rf *.out
+	find . -type f -name '*.out' -delete
 	find . -type f -name '*.gch' -delete
 
 ############################################# LIST #############################################
-list : compile_list run_list clean
+list : compile_list test_list clean
 
-compile_list : list/*.cpp list/*.hpp
-	g++ list/*.cpp list/*.hpp -o list.out
+compile_list : list/list.hpp list/list.cpp list/list_test.cpp
+	g++ list/list.hpp list/list.cpp list/list_test.cpp -std=c++17 -lgtest -lpthread -o list/list.out
 
-run_list :
-	./list.out
+test_list :
+	./list/list.out
 
 ############################################# LINKED LIST #########################################
 linked_list : compile_linked_list run_linked_list clean
