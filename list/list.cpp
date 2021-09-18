@@ -195,15 +195,14 @@ void List<T>::bubble_sort() {
 
 template <class T>
 T List<T>::max() {
-    if (length >= 2) {
-        int mid_value = (length-1)/2;
-        return max(0, length-1);
-    } else {
-        if (length == 0) {
+    switch(length) {
+        case 0:
             return (T)NULL;
-        } else {
+        case 1:
             return array[0];
-        }
+        default:
+            int mid_value = (length-1)/2;
+            return max(0, length-1);
     }
 }
 
