@@ -208,7 +208,8 @@ T List<T>::max() {
 
 template <class T>
 T List<T>::max(int start, int end) {
-    if (start == end - 1) {
+    int range = end - start;
+    if (range == 1) {
         if (array[start] > array[end]) {
             return array[start];
         } else {

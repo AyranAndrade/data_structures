@@ -57,6 +57,31 @@ TEST(ListTest, MustPrintContentRightly) {
     EXPECT_EQ("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]", out.str());
 }
 
+TEST(ListTest, MustGetMaxValueRightly) {
+    List<int> l;
+
+    l.append(1);
+    l.append(2);
+    l.append(33);
+    l.append(42);
+    l.append(5);
+    l.append(6);
+    l.append(3);
+    l.append(8);
+    l.append(2);
+    l.append(10);
+    EXPECT_EQ(l.max(), 42);
+
+    l.append(50);
+    EXPECT_EQ(l.max(), 50);
+
+    l.append(-1);
+    EXPECT_EQ(l.max(), 50);
+
+    l.append(54590);
+    EXPECT_EQ(l.max(), 54590);
+}
+
 int main(int argc, char **argv) {
   InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
