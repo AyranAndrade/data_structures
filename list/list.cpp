@@ -142,9 +142,11 @@ List<T>::List(T *array, int max_length, int length) {
 
 template <class T>
 void List<T>::insert(T element, int index) {
-    if (index == 0) {
+    int last_position = length - 1;
+
+    if (index == last_position || length == 0) {
         append(element);
-    } else if (index > 0 && index < length) {
+    } else if (index >= 0 && index < last_position) {
         length++;
         resize_if_necessary();
 
