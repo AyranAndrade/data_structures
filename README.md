@@ -1,0 +1,1 @@
+Para executar os testes de alguma estrutura de dados, basta executar `make NOME_DA_ESTRUTURA` da mesma forma que está escrito no nome da pasta, por exemplo: `make list`, `make binary_search_tree`, etc.
