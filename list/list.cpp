@@ -190,7 +190,6 @@ T List<T>::max() {
         case 1:
             return array[0];
         default:
-            int mid_value = (length-1)/2;
             return max(0, length-1);
     }
 }
