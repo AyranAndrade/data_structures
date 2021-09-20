@@ -2,7 +2,6 @@
 #define _BINARY_TREE_CPP_
 
 #include <iostream>
-#include <cmath>
 
 #include "binary_tree.hpp"
 #include "../list/list.hpp"
@@ -50,7 +49,14 @@ int BinaryTree::get_height(Leaf* leaf) {
     if (leaf == NULL) {
         return 0;
     } else {
-        return max(get_height(leaf->left), get_height(leaf->right)) + 1;
+        int left_height = get_height(leaf->left);
+        int right_height = get_height(leaf->right);
+
+        if (left_height > right_height) {
+            return left_height + 1;
+        } else {
+            return right_height + 1;
+        }
     }
 }
 
