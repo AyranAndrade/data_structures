@@ -7,7 +7,7 @@ clean :
 list : compile_list test_list clean
 
 compile_list : list/list.hpp list/list.cpp list/list_test.cpp
-	g++ list/list.hpp list/list.cpp list/list_test.cpp -std=c++17 -lgtest -lpthread -o list/list.out
+	g++ list/*.hpp list/*.cpp -std=c++17 -lgtest -lpthread -o list/list.out
 
 test_list :
 	./list/list.out

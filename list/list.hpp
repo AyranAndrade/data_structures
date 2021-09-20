@@ -24,8 +24,6 @@ class List {
 
         List sub_list(int from, int to);
 
-        void bubble_sort();
-
         T max();
 
         T& operator[](int index);
