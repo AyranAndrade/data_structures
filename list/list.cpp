@@ -219,8 +219,8 @@ T List<T>::max(int start, int end) {
         }
     } else {
         int mid_index = (end - start)/2 + start;
-        int first_value = max(start, mid_index);
-        int second_value = max(mid_index, end);
+        T first_value = max(start, mid_index);
+        T second_value = max(mid_index, end);
         if (first_value > second_value) {
             return first_value;
         } else {
